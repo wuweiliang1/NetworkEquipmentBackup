@@ -1,0 +1,27 @@
+<component name="ProjectDictionaryState">
+  <dictionary name="0">
+    <words>
+      <w>addr</w>
+      <w>backupaddr</w>
+      <w>backupdate</w>
+      <w>backupprotocol</w>
+      <w>backuptime</w>
+      <w>cisco</w>
+      <w>citrix</w>
+      <w>getnodelist</w>
+      <w>globalconfig</w>
+      <w>hillstone</w>
+      <w>ipcsv</w>
+      <w>iplist</w>
+      <w>loginmethod</w>
+      <w>nodeconf</w>
+      <w>nodecsv</w>
+      <w>nodereader</w>
+      <w>noderow</w>
+      <w>pexpect</w>
+      <w>tftp</w>
+      <w>typemapping</w>
+      <w>updatecron</w>
+    </words>
+  </dictionary>
+</component>
