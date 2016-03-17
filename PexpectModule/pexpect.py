@@ -187,7 +187,7 @@ def expect_netscaler(ip, user, password, protocol, nodename):
         session.sendline('tftp %s' % tftpaddr)
         session.expect('tftp>', timeout=5)
         session.sendline('put /nsconfig/ns.conf /%s/%s' % (backuptime, nodename))
-        session.expect('Sent', timeout=10)
+        session.expect('>', timeout=10)
         logging.INFO('%s successfully finish backup' % nodename)
     except pexpect.EOF:
         logging.ERROR('Abnormal End Of File Detected. The Script Logging is as follow')
@@ -283,12 +283,12 @@ def expect_3dns(ip, user, password, protocol, nodename):
                           timeout=10)
             pexpect.spawn('scp %s@%s:/config/3dns/namedb %s/temp/%s.db' % (user, ip, sys.path[0], nodename),
                           timeout=10)
-            pexpect.spawn('tftp %s' % tftpaddr,timeout=10)
+            pexpect.spawn('/usr/bin/tftp %s' % tftpaddr, timeout=10)
         elif protocol is 'telnet':
             logging.ERROR('3dns telnet login is not supported. The node will be skipped')
             return -1
         session.expect('tftp>', timeout=5)
-        session.sendline('put /nsconfig/ns.conf /%s/%s' % (backuptime, nodename))
+        session.sendline('put %s/temp/%s.conf /%s/%s' % (backuptime, nodename))
         session.expect('Sent', timeout=10)
         logging.INFO('%s successfully finish backup' % nodename)
         session.expect('#', timeout=5)
