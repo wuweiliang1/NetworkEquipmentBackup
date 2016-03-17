@@ -281,26 +281,20 @@ def expect_3dns(ip, user, password, protocol, nodename):
                           timeout=10)
             pexpect.spawn('scp -rp %s@%s:/config/3dns/namedb %s/temp/%s.db' % (user, ip, sys.path[0], nodename),
                           timeout=10)
-            pexpect.spawn('scp %s@%s:/config/3dns/namedb %s/temp/%s.db' % (user, ip, sys.path[0], nodename),
+            pexpect.spawn('scp %s@%s:/var/sysbackup/%s.ucs %s/temp/%s.ucs' %
+                          (user, ip, time.strftime("%Y%m%d", time.localtime()), sys.path[0], nodename),
                           timeout=10)
             pexpect.spawn('/usr/bin/tftp %s' % tftpaddr, timeout=10)
         elif protocol is 'telnet':
             logging.ERROR('3dns telnet login is not supported. The node will be skipped')
             return -1
         session.expect('tftp>', timeout=5)
-        session.sendline('put %s/temp/%s.conf /%s/%s' % (backuptime, nodename))
-        session.expect('Sent', timeout=10)
-        logging.INFO('%s successfully finish backup' % nodename)
-        session.expect('#', timeout=5)
-        session.sendline('write memory')
-        session.expect('#', timeout=5)
-        session.sendline('configure')
-        confmatch = session.expect(['(config)#', '(yes/no)'], timeout=10)
-        if confmatch == 1:
-            session.sendline('yes')
-            session.expect('(config)#', timeout=10)
-        session.sendline('copy running-config tftp://%s/%s/%s' % (tftpaddr, backuptime, nodename))
-        session.expect('(config)#', timeout=20)
+        session.sendline('put %s/temp/%s.conf %s/%s.conf' % (sys.path[0], nodename, backuptime, nodename))
+        session.expect('tftp>', timeout=5)
+        session.sendline('put %s/temp/%s.db %s/%s.db' % (sys.path[0], nodename, backuptime, nodename))
+        session.expect('tftp>', timeout=5)
+        session.sendline('put %s/temp/%s.ucs %s/%s.ucs' % (sys.path[0], nodename, backuptime, nodename))
+        session.expect('tftp>', timeout=5)
         logging.INFO('%s successfully finish backup' % nodename)
     except pexpect.EOF:
         logging.ERROR('Abnormal End Of File Detected. The Script Logging is as follow')
