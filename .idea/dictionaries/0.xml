@@ -2,24 +2,31 @@
   <dictionary name="0">
     <words>
       <w>addr</w>
+      <w>alteon</w>
       <w>backupaddr</w>
       <w>backupdate</w>
       <w>backupprotocol</w>
       <w>backuptime</w>
       <w>cisco</w>
       <w>citrix</w>
+      <w>enablepassword</w>
       <w>getnodelist</w>
+      <w>gigabit</w>
       <w>globalconfig</w>
       <w>hillstone</w>
       <w>ipcsv</w>
       <w>iplist</w>
       <w>loginmethod</w>
+      <w>namedb</w>
+      <w>netscaler</w>
       <w>nodeconf</w>
       <w>nodecsv</w>
+      <w>nodename</w>
       <w>nodereader</w>
       <w>noderow</w>
       <w>pexpect</w>
       <w>tftp</w>
+      <w>tftpaddr</w>
       <w>typemapping</w>
       <w>updatecron</w>
     </words>
