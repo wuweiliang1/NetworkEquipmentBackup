@@ -36,7 +36,7 @@ class GlobalconfigReader:
 
 
 class BackupNodeReader:
-    def __init__(self, nodecsv=sys.path[0] + '/Conf/iplist.csv'):
+    def __init__(self, nodecsv=sys.path[0] + '/Conf/iplist_internal.csv'):
         self._nodelist = None
         with open(nodecsv, newline='') as ipcsv:
             nodereader = csv.DictReader(ipcsv, delimiter=',')
@@ -48,29 +48,39 @@ class BackupNodeReader:
 
 
 class Node:
-    def __init__(self, ip, hostname, loginmethod, updatecron, updateinterval):
-        self._ip = ip
-        self._hostname = hostname
-        self._loginmethod = loginmethod
-        self._updatecron = updatecron
-        self._updateinterval = updateinterval
+    def __init__(self, nodename, nodeip, nodetype, classfication, protocol, backupperiod, lastbackuptime):
+        self._nodename = nodename
+        self._nodeip = nodeip
+        self._nodetype = nodetype
+        self._classfication = classfication
+        self._protocol = protocol
+        self._backupperiod = backupperiod
+        self._lastbackuptime = lastbackuptime
 
     @property
-    def ip(self):
-        return self._ip
+    def nodename(self):
+        return self._nodename
 
     @property
-    def hostname(self):
-        return self._hostname
+    def nodeip(self):
+        return self._nodeip
 
     @property
-    def loginmethod(self):
-        return self._loginmethod
+    def nodetype(self):
+        return self._nodetype
 
     @property
-    def updatecron(self):
-        return self._updatecron
+    def classfication(self):
+        return self._classfication
 
     @property
-    def updateinterval(self):
-        return self._updateinterval
+    def protocol(self):
+        return self._protocol
+
+    @property
+    def backupperiod(self):
+        return self._backupperiod
+
+    @property
+    def lastbackuptime(self):
+        return self._lastbackuptime
