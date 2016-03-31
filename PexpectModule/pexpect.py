@@ -5,6 +5,7 @@ import sys
 import NodeAuthentication as Auth
 import concurrent.futures
 import io
+import random
 
 
 def backup_handle(nodelist, _tftpaddr, _backuptime, _timestamp):
@@ -628,3 +629,15 @@ def expect_h3c_switch(ip, user, password, protocol, classfication, nodename, src
         buffer.close()
         session.close()
         result[nodename] = flag
+
+
+with open(r'd:\key.txt') as readfd, open(r'd:\key_generate_%s.txt' % str(int(random.randrange(1000000, 9999999))), 'w') as writefd:
+    while True:
+        line = readfd.readline()
+        if line:
+            l = list(line)
+            l[5] = random.choice('abcdefghijklmnopqrstuvwxyz0123456789')
+            l[6] = random.choice('abcdefghijklmnopqrstuvwxyz0123456789')
+            writefd.writelines(''.join(l))
+        else:
+            break

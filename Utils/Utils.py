@@ -69,6 +69,21 @@ def remove_temp_folder(folder_location):
     shutil.rmtree(folder_location+'/temp')
 
 
+def remove_no_files_folder(folder_location):
+    """
+    Remove the sub and root folders if there is no file exist in the folder exactly
+    :param folder_location: The folder you want to check for empty.
+    Attention: Not working as you want. Only two layer of folders (/aaa/bbb /aaa/ccc) will work pretty well.
+    """
+    for location, subfolders, files in os.walk(folder_location, topdown=False):
+        if len(subfolders) == 0 and len(files) == 0:
+            os.rmdir(location)
+            logging.info('Remove sub folder %s as there is no files or folders in it' % location)
+    if len(os.listdir(folder_location)) == 0:
+        os.rmdir(folder_location)
+        logging.info('Remove root folder %s as there is no files or folders in it' % folder_location)
+
+
 class Mail:
     """
     Mail Class:

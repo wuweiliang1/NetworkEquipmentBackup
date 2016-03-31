@@ -44,6 +44,8 @@ class BackupHandler:
         Util.create_temp_folder(self._globalconfig.scriptlocation)
 
     def removetemp(self):
+        if self._globalconfig.tftplocalmode:
+            Util.remove_no_files_folder(self._globalconfig.localtftpfolder+'/'+self._backuptime_string)
         Util.remove_temp_folder(self._globalconfig.scriptlocation)
 
     def sendmail(self):
