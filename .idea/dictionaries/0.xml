@@ -2,38 +2,80 @@
   <dictionary name="0">
     <words>
       <w>addr</w>
+      <w>adminuser</w>
       <w>alteon</w>
+      <w>argparser</w>
       <w>backupaddr</w>
       <w>backupdate</w>
+      <w>backuphandler</w>
+      <w>backupnodeconfig</w>
       <w>backupperiod</w>
       <w>backupprotocol</w>
+      <w>backupstrategy</w>
       <w>backuptime</w>
       <w>cisco</w>
       <w>citrix</w>
       <w>classfication</w>
+      <w>classificationlist</w>
+      <w>cliargs</w>
+      <w>confmatch</w>
+      <w>createtemp</w>
       <w>enablepassword</w>
+      <w>enforcemode</w>
+      <w>expectlog</w>
+      <w>filelist</w>
       <w>getnodelist</w>
       <w>gigabit</w>
       <w>globalconfig</w>
       <w>hillstone</w>
+      <w>importclassificationlist</w>
       <w>ipcsv</w>
       <w>iplist</w>
       <w>lastbackuptime</w>
+      <w>localtftpfolder</w>
+      <w>logdst</w>
       <w>loginmethod</w>
+      <w>mailcontent</w>
+      <w>mailmode</w>
+      <w>mailpasswd</w>
+      <w>mailsender</w>
+      <w>mailsendto</w>
+      <w>mailuser</w>
+      <w>mailuserpasswd</w>
+      <w>mgmt</w>
+      <w>mimemultipart</w>
+      <w>mimetext</w>
       <w>namedb</w>
+      <w>needbackup</w>
+      <w>netbackup</w>
       <w>netscaler</w>
       <w>nodeconf</w>
       <w>nodecsv</w>
+      <w>nodeip</w>
       <w>nodename</w>
       <w>nodereader</w>
       <w>noderow</w>
       <w>nodetype</w>
+      <w>nodewriter</w>
       <w>pexpect</w>
+      <w>plaincontent</w>
+      <w>removetemp</w>
+      <w>scriptlocation</w>
+      <w>sendmail</w>
+      <w>smtpserver</w>
+      <w>startbackup</w>
       <w>startsinglebackup</w>
+      <w>subfolder</w>
+      <w>subfolders</w>
       <w>tftp</w>
       <w>tftpaddr</w>
+      <w>tftplocalmode</w>
+      <w>tftpsession</w>
+      <w>timestring</w>
       <w>typemapping</w>
       <w>updatecron</w>
+      <w>updatetimestamp</w>
+      <w>wuweiliang</w>
     </words>
   </dictionary>
 </component>
